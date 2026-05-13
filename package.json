@@ -1,5 +1,5 @@
 {
-  "name": "pi-teardown-screen",
+  "name": "@furbyhaxx/pi-teardown-screen",
   "version": "0.1.0",
   "description": "Slim Pi extension that prints a teardown screen with session stats when the user quits a pi session. Uses the default pi theme; no configuration.",
   "type": "module",
@@ -50,5 +50,24 @@
     "@types/node": "^25.7.0",
     "typebox": "^1.1.38",
     "typescript": "^6.0.3"
-  }
+  },
+  "author": "furbyhaxx",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/furbyhaxx/pi-teardown-screen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/furbyhaxx/pi-teardown-screen/issues"
+  },
+  "homepage": "https://github.com/furbyhaxx/pi-teardown-screen#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "extensions/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "package.json"
+  ]
 }

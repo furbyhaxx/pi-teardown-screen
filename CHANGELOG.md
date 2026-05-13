@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- npm publish metadata for `@furbyhaxx/pi-teardown-screen`, including repository,
+  bugs, homepage, public publish config, package file whitelist, and MIT license
+  file.
+- npm installation instructions.
+
 ### Changed
 - Updated README installation instructions to use the GitHub `pi install git:`
   source and local clone install path.

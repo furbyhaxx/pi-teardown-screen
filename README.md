@@ -12,7 +12,13 @@ It provides the compact default teardown layout with:
 
 ## Install
 
-Install from GitHub:
+Install from npm:
+
+```sh
+pi install npm:@furbyhaxx/pi-teardown-screen
+```
+
+Or install from GitHub:
 
 ```sh
 pi install git:https://github.com/furbyhaxx/pi-teardown-screen
