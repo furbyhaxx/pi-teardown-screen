@@ -14,20 +14,23 @@ behavior as that extension running on its **default config**, but with:
 
 ## Install
 
-Pick one:
+Install from GitHub:
 
 ```sh
-# Local clone (this repo)
-pi install /path/to/pi-teardown-screen
+pi install git:https://github.com/furbyhaxx/pi-teardown-screen
+```
 
-# Or as a project-scoped install
-pi install -l /path/to/pi-teardown-screen
+Or clone the repo and install from the local checkout:
+
+```sh
+git clone https://github.com/furbyhaxx/pi-teardown-screen
+pi install path/to/cloned/repo
 ```
 
 Or load directly without installing:
 
 ```sh
-pi -e /path/to/pi-teardown-screen/extensions/teardown/index.ts
+pi -e path/to/cloned/repo/extensions/teardown/index.ts
 ```
 
 ## What it shows
