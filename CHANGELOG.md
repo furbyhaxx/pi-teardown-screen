@@ -14,8 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2026-05-13
 
 ### Added
-- Initial extraction from `pi-extensions` repository as a standalone Pi
-  extension package.
+- Initial standalone Pi extension package.
 - Session teardown screen on `session_shutdown` (reason: `quit`) showing
   project, session id, optional session title, resume command, and a
   stats row (turns, tokens, cost, duration).

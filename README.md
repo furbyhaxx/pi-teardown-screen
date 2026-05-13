@@ -4,9 +4,7 @@ A slim [pi](https://github.com/earendil-works/pi) coding agent extension that
 prints a session **teardown screen** with a resume command and stats (turns,
 tokens, cost, duration) when you quit a pi session.
 
-This is a stripped-down extraction of the `teardown` extension from
-[`pi-extensions`](https://github.com/furbyhaxx/pi-extensions): same look and
-behavior as that extension running on its **default config**, but with:
+It provides the compact default teardown layout with:
 
 - **Zero configuration** — no settings, flags, or env vars to tune.
 - **No custom theme** — uses pi's default theme tokens (`accent`, `muted`,
