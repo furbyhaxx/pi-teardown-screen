@@ -4,11 +4,13 @@ import type {
 	Theme,
 	ThemeColor,
 } from "@earendil-works/pi-coding-agent";
+import { buildResumeCommand, resolvePieEnvironmentInfo } from "./pie-env.js";
 
 // Sections rendered, in order. Mirrors the source extension's default
 // `session.teardown.sections` configuration.
 const SECTIONS = [
 	"project",
+	"environment",
 	"session",
 	"title",
 	"resume",
@@ -26,6 +28,8 @@ export type SessionStats = {
 	cwd: string;
 	sessionId: string;
 	sessionName: string | undefined;
+	environmentName?: string;
+	launchedThroughPie: boolean;
 	turns: number;
 	totalTokens: number;
 	totalCost: number;
@@ -70,6 +74,7 @@ export function gatherStats(ctx: ExtensionContext): SessionStats {
 	const cwd = sm.getCwd();
 	const sessionId = sm.getSessionId();
 	const sessionName = sm.getSessionName() ?? undefined;
+	const environment = resolvePieEnvironmentInfo(process.env);
 
 	let turns = 0;
 	let totalTokens = 0;
@@ -110,6 +115,8 @@ export function gatherStats(ctx: ExtensionContext): SessionStats {
 		cwd,
 		sessionId,
 		sessionName,
+		environmentName: environment.environmentName,
+		launchedThroughPie: environment.launchedThroughPie,
 		turns,
 		totalTokens,
 		totalCost,
@@ -152,6 +159,8 @@ function labelForSection(section: Section): string {
 	switch (section) {
 		case "project":
 			return "Project:";
+		case "environment":
+			return "Environment:";
 		case "session":
 			return "Session:";
 		case "title":
@@ -182,6 +191,11 @@ function renderRows(
 			case "project":
 				infoLines.push(row("Project:", formatCwd(stats.cwd)));
 				break;
+			case "environment":
+				if (stats.environmentName) {
+					infoLines.push(row("Environment:", stats.environmentName));
+				}
+				break;
 			case "session":
 				infoLines.push(row("Session:", stats.sessionId));
 				break;
@@ -189,7 +203,15 @@ function renderRows(
 				if (stats.sessionName) infoLines.push(row("Title:", stats.sessionName));
 				break;
 			case "resume":
-				postLines.push(row("Resume:", `pi --session ${stats.sessionId}`));
+				postLines.push(
+					row(
+						"Resume:",
+						buildResumeCommand(stats.sessionId, {
+							environmentName: stats.environmentName,
+							launchedThroughPie: stats.launchedThroughPie,
+						}),
+					),
+				);
 				break;
 			case "stats": {
 				const parts: string[] = [];

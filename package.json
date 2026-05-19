@@ -1,6 +1,6 @@
 {
   "name": "@furbyhaxx/pi-teardown-screen",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Slim Pi extension that prints a teardown screen with session stats when the user quits a pi session. Uses the default pi theme; no configuration.",
   "type": "module",
   "license": "MIT",
@@ -16,6 +16,8 @@
     ]
   },
   "scripts": {
+    "test:unit": "npx tsx extensions/teardown/index.test.ts",
+    "test": "npm run typecheck && npm run test:unit",
     "typecheck": "tsc --noEmit",
     "build": "tsc --noEmit"
   },
@@ -48,6 +50,7 @@
     "@earendil-works/pi-coding-agent": "^0.74.0",
     "@earendil-works/pi-tui": "^0.74.0",
     "@types/node": "^25.7.0",
+    "tsx": "^4.22.2",
     "typebox": "^1.1.38",
     "typescript": "^6.0.3"
   },

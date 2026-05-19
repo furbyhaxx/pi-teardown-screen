@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+## [0.2.0] - 2026-05-19
+
+### Added
+- Environment row in the teardown screen when a pie-managed environment can be detected from `PI_PIE_ENV` or `PI_CODING_AGENT_DIR`.
+
+### Changed
+- Resume command now prefers `pie <env> --session <id>` for sessions launched through the `pie` wrapper, while keeping `pi --session <id>` as the fallback.
+- Added teardown coverage for managed-environment rendering and pie-aware resume commands.
+
 ## [0.1.0] - 2026-05-13
 
 ### Added

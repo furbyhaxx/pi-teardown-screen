@@ -43,21 +43,26 @@ On `quit` of an interactive session, it writes to stderr:
 
 ```
 ╭────╮  Project: ~/work/example
-│ Pi │  Session: 01J...abc
-╰────╯  Title:   refactoring auth module
+│ Pi │  Environment: auto
+╰────╯  Session: 01J...abc
+        Title:   refactoring auth module
 
-        Resume:  pi --session 01J...abc
+        Resume:  pie auto --session 01J...abc
 
         4 turns · 12.3k tokens · $0.04 · 2m 17s
 ```
+
+If no managed environment is detected, the environment row is omitted and the
+resume command falls back to `pi --session <id>`.
 
 ## Behavior
 
 - Triggers on `session_shutdown` with `reason === "quit"` only (not on
   `/new`, `/fork`, `/resume`, etc.).
 - Skipped when there is no UI (e.g. `--mode json`, `-p`).
-- Sections rendered, in order: `project`, `session`, `title` (if set),
-  `resume`, `stats` (turns, tokens, cost, duration).
+- Sections rendered, in order: `project`, `environment` (if detected),
+  `session`, `title` (if set), `resume`, `stats` (turns, tokens, cost,
+  duration).
 - Layout: compact (logo + key/value rows side by side, then a stats row).
 
 ## Build
